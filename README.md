@@ -1,9 +1,47 @@
 # DevOps Conceitos
 
 <ul>
-	<a href=""><b>Introdução</b></a>
-	<li></li>
-	<a href=""><b>Docker</b></a>
+	<a href="https://github.com/leostella97/conceitosdevops#introdu%C3%A7%C3%A3o">Introdução</a>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#colabora%C3%A7%C3%A3o">Colaboração</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#automa%C3%A7%C3%A3o">Automação</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#entrega-cont%C3%ADnua">Entrega contínua</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#monitoramento-e-feedback">Monitoramento e feedback</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#infraestrutura-como-c%C3%B3digo">Infraestrutura como código</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#seguran%C3%A7a">Segurança</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#microservices">Microservices</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#devsecops">DevSecOps</a>
+	</li>
+	<!-- fim -->
+	<!-- menu docker -->
+	<a href="https://github.com/leostella97/conceitosdevops#docker"><b>Docker</b></a>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#come%C3%A7ando-com-o-docker">Começando com o Docker</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#download-de-imagens-docker">Download de Imagens Docker</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#executar-um-container">Executar um container</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#aplica%C3%A7%C3%B5es-no-container">Aplicações no Container</a>
+	</li>
+	<!-- fim docker -->
 </ul>
 
 
@@ -124,3 +162,11 @@ Acesse a aplicação no navegador usando o endereço <i>http://localhost:5000 ou
 Para <b>atualizar a aplicação</b>, basta <i>modificar o código-fonte e criar uma nova imagem</i> usando o comando <b>docker build</b>. Em seguida, pare o container em execução com o comando <b>docker stop nome_ou_id_do_container</b> e execute o novo container com a imagem atualizada usando o comando <b>docker run</b>.
 
 Para <b>remover um container</b>, use o comando <b>docker rm nome_ou_id_do_container</b>. Se desejar remover a imagem também, use o comando <b>docker rmi nome_ou_id_da_imagem</b>.
+
+
+
+
+
+
+Repositório feito para ajudar nos estudos de um amigo Alan Alves
+Agradecimentos pelo conhecimento a <a href="https://dio.me">DIO - Digital Inovation One</a>
