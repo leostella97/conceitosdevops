@@ -50,6 +50,12 @@
 	<li>
 		<a href="https://github.com/leostella97/conceitosdevops#tags">TAGs</a>
 	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#cria%C3%A7%C3%A3o-de-um-container-mysql">Criação de um Container MySQL</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#parando-e-reiniciando-um-container"></a>
+	</li>
 	<!-- fim docker -->
 </ul>
 
