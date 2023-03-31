@@ -1,7 +1,7 @@
 # DevOps Conceitos
 
 <ul>
-	<a href="https://github.com/leostella97/conceitosdevops#introdu%C3%A7%C3%A3o">Introdução</a>
+	<a href="https://github.com/leostella97/conceitosdevops#introdu%C3%A7%C3%A3o"><b>Introdução</b></a>
 	<li>
 		<a href="https://github.com/leostella97/conceitosdevops#colabora%C3%A7%C3%A3o">Colaboração</a>
 	</li>
@@ -40,6 +40,15 @@
 	</li>
 	<li>
 		<a href="https://github.com/leostella97/conceitosdevops#aplica%C3%A7%C3%B5es-no-container">Aplicações no Container</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#excluindo-e-renomeando-containers">Excluindo e Renomeando Containers</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#copiar-arquivos-para-o-container">Copiar Arquivos para o Container</a>
+	</li>
+	<li>
+		<a href="https://github.com/leostella97/conceitosdevops#tags">TAGs</a>
 	</li>
 	<!-- fim docker -->
 </ul>
@@ -242,7 +251,7 @@ Algumas das <b>tags comuns (e principais)</b> do Docker incluem:
 
 Além disso, os usuários também podem <b>criar suas próprias tags personalizadas</b> para imagens Docker que eles criaram.
 
-### Criação do Container MySQL
+### Criação de um Container MySQL
 Primeiro, crie um arquivo .yml/.yaml (aconselho .yml caso use GitLab), por exemplo, o nome que darei será cont-mysql.yml:
 <code>
 version: '3.9'
