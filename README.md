@@ -168,6 +168,6 @@ Para <b>remover um container</b>, use o comando <b>docker rm nome_ou_id_do_conta
 
 
 <br><br><br><br>
-Repositório feito para ajudar nos estudos de um amigo Alan Alves
+Repositório feito para ajudar nos estudos de um amigo, <b>Alan Alves</b>
 <br>
 Agradecimentos pelo conhecimento a <a href="https://dio.me">DIO - Digital Inovation One</a>
