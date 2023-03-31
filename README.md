@@ -163,6 +163,128 @@ Para <b>atualizar a aplicação</b>, basta <i>modificar o código-fonte e criar 
 
 Para <b>remover um container</b>, use o comando <b>docker rm nome_ou_id_do_container</b>. Se desejar remover a imagem também, use o comando <b>docker rmi nome_ou_id_da_imagem</b>.
 
+### Excluindo e Renomeando Containers
+Para excluir um container no Docker:
+<code>
+docker rm nome_ou_id_do_container
+</code>
+Onde <b>nome_ou_id_do_container</b> é (lógico) o nome ou ID do container que você deseja <b>excluir</b>. Certifique-se de que o container <b>esteja parado</b> antes de tentar excluí-lo.
+
+Para <b>renomear</b> um container no Docker, você pode usar o seguinte comando:
+<code>
+docker rename nome_atual_do_container novo_nome_do_container
+</code>
+
+Onde <b>nome_atual_do_container</b> é o nome atual do container que você deseja renomear e <b>novo_nome_do_container</b> é o novo nome que você deseja dar a ele. <b><i>Lembre-se</i></b> de que o novo nome deve ser exclusivo em relação aos outros containers em execução no seu sistema Docker.
+
+Segue um exemplo de como <b>criar um container</b> do <b>Nginx</b>, <b>renomeá-lo e excluí-lo</b>:
+
+Abra o terminal e execute o seguinte comando para baixar e executar um container Docker com a imagem do Nginx:
+<code>
+docker run --name meu-container-nginx -d nginx
+</code>
+Este comando <b>baixa a imagem</b> do Nginx do Docker Hub e executa um container com o nome <b>"meu-container-nginx"</b>. O parâmetro <b>"-d"</b> faz com que o container seja <b>executado em segundo plano</b>.
+
+Para verificar se o container está em execução, execute o seguinte comando:
+<code>
+docker ps
+</code>
+
+Você deverá ver o container <b>"meu-container-nginx"</b> na lista de containers em execução.
+
+Agora, vamos <b>renomear</b> o container para <b>"meu-novo-container-nginx"</b> usando o seguinte comando:
+<code>
+docker rename meu-container-nginx meu-novo-container-nginx
+</code>
+
+Para verificar se o nome do container foi alterado, execute o seguinte comando:
+<code>
+docker ps
+</code>
+
+O container deve ser <b>listado</b> com o novo nome <b>"meu-novo-container-nginx"</b>.
+
+Finalmente, para <b>excluir o container</b>, execute o seguinte comando:
+<code>
+docker rm meu-novo-container-nginx
+</code>
+
+Este comando exclui o container com o nome <b>"meu-novo-container-nginx"</b>.
+
+### Copiar Arquivos para o Container
+Para <b>copiar arquivos</b> para um contêiner Docker, você pode usar o comando <b>"docker cp"</b> como está nas etapas abaixo:
+
+Execute o contêiner com o comando <b>"docker run"</b>.
+Use o comando <b>"docker cp"</b> seguido do <b>caminho do arquivo</b> local que você deseja copiar e o <b>caminho dentro do container</b> que você deseja copiar para. Por exemplo:
+<code>
+docker cp /caminho/local/arquivo.txt nome-do-container:/caminho/contêiner/arquivo.txt
+</code>
+
+Isso copiará o arquivo <b>"arquivo.txt"</b> do seu sistema local para o contêiner Docker com o nome <b>"nome-do-container"</b> no caminho <b>"/caminho/contêiner/arquivo.txt"</b>.
+
+Para copiar arquivos do contêiner para o seu sistema local, basta trocar a ordem dos caminhos:
+<code>
+docker cp nome-do-container:/caminho/contêiner/arquivo.txt /caminho/local/arquivo.txt
+</code>
+
+Isso copiará o arquivo <b>"arquivo.txt"</b> do contêiner Docker com o nome <b>"nome-do-container"</b> no caminho <b>"/caminho/contêiner/arquivo.txt"</b> para o seu sistema local no caminho <b>"/caminho/local/arquivo.txt"</b>.
+
+### TAGs
+As <b>tags do Docker</b> referem-se às <b>versões específicas</b> de uma imagem Docker. As tags permitem que você <b>especifique</b> qual versão de uma imagem você deseja usar em seu contêiner.
+
+Algumas das <b>tags comuns (e principais)</b> do Docker incluem:
+
+<b>• latest:</b> a versão mais recente da imagem
+<b>• stable:</b> a versão estável da imagem
+<b>• beta:</b> uma versão beta da imagem
+<b>alpha:</b> uma versão alfa da imagem
+<b>• <i>versão_específica</i></b>: uma versão específica da imagem identificada por um número de versão ou tag personalizada
+
+Além disso, os usuários também podem <b>criar suas próprias tags personalizadas</b> para imagens Docker que eles criaram.
+
+### Criação do Container MySQL
+Primeiro, crie um arquivo .yml/.yaml (aconselho .yml caso use GitLab), por exemplo, o nome que darei será cont-mysql.yml:
+<code>
+version: '3.9'
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: sua_senha
+      MYSQL_DATABASE: seu_banco_de_dados
+      MYSQL_USER: seu_usuario
+      MYSQL_PASSWORD: sua_senha_do_usuario
+    ports:
+      - "3306:3306"
+</code>
+
+Assim como <b>Python</b>, arquivos YAML <b>SÃO OBRIGADOS</b> a serem <i>identados</i> corretamente.
+
+### Parando e Reiniciando um Container
+Para parar um container em execução no Docker, você pode usar o seguinte comando:
+<code>
+docker stop nome_do_container
+</code>
+Substitua "nome_do_container" pelo nome ou ID do container que você deseja parar. Isso <b>interromperá</b> o processo em execução no container e o <b>desligará</b>.
+
+Para <b>reiniciar um container</b> que já foi interrompido, use o seguinte comando:
+<code>
+docker start nome_do_container
+</code>
+Isso <b>iniciará novamente</b> o container com as <b>mesmas configurações</b> que tinha antes de ser interrompido. Se você deseja <b>parar e reiniciar</b> um container em uma <b>única linha de comando</b>, você pode usar o seguinte comando:
+<code>
+docker restart nome_do_container
+</code>
+
+Isso irá <b>parar o container</b>, e em seguida, <b>iniciá-lo novamente <i>imediatamente</i></b> em seguida.
+
+
+
+
+
+
+
 
 
 
