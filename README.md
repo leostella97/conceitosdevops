@@ -200,18 +200,19 @@ Para excluir um container no Docker:
 Onde <b>nome_ou_id_do_container</b> é (lógico) o nome ou ID do container que você deseja <b>excluir</b>. Certifique-se de que o container <b>esteja parado</b> antes de tentar excluí-lo.
 
 Para <b>renomear</b> um container no Docker, você pode usar o seguinte comando:
-<code>
-docker rename nome_atual_do_container novo_nome_do_container
-</code>
+''
+
+	docker rename nome_atual_do_container novo_nome_do_container
+''
 
 Onde <b>nome_atual_do_container</b> é o nome atual do container que você deseja renomear e <b>novo_nome_do_container</b> é o novo nome que você deseja dar a ele. <b><i>Lembre-se</i></b> de que o novo nome deve ser exclusivo em relação aos outros containers em execução no seu sistema Docker.
 
 Segue um exemplo de como <b>criar um container</b> do <b>Nginx</b>, <b>renomeá-lo e excluí-lo</b>:
 
 Abra o terminal e execute o seguinte comando para baixar e executar um container Docker com a imagem do Nginx:
-<code>
-docker run --name meu-container-nginx -d nginx
-</code>
+
+	docker run --name meu-container-nginx -d nginx
+
 Este comando <b>baixa a imagem</b> do Nginx do Docker Hub e executa um container com o nome <b>"meu-container-nginx"</b>. O parâmetro <b>"-d"</b> faz com que o container seja <b>executado em segundo plano</b>.
 
 Para verificar se o container está em execução, execute o seguinte comando:
