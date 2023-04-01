@@ -216,28 +216,26 @@ Abra o terminal e execute o seguinte comando para baixar e executar um container
 Este comando <b>baixa a imagem</b> do Nginx do Docker Hub e executa um container com o nome <b>"meu-container-nginx"</b>. O parâmetro <b>"-d"</b> faz com que o container seja <b>executado em segundo plano</b>.
 
 Para verificar se o container está em execução, execute o seguinte comando:
-<code>
-docker ps
-</code>
+
+	docker ps
+
 
 Você deverá ver o container <b>"meu-container-nginx"</b> na lista de containers em execução.
 
 Agora, vamos <b>renomear</b> o container para <b>"meu-novo-container-nginx"</b> usando o seguinte comando:
-<code>
-docker rename meu-container-nginx meu-novo-container-nginx
-</code>
+
+	docker rename meu-container-nginx meu-novo-container-nginx
 
 Para verificar se o nome do container foi alterado, execute o seguinte comando:
-<code>
-docker ps
-</code>
+
+	docker ps
+
 
 O container deve ser <b>listado</b> com o novo nome <b>"meu-novo-container-nginx"</b>.
 
 Finalmente, para <b>excluir o container</b>, execute o seguinte comando:
-<code>
-docker rm meu-novo-container-nginx
-</code>
+
+	docker rm meu-novo-container-nginx
 
 Este comando exclui o container com o nome <b>"meu-novo-container-nginx"</b>.
 
@@ -246,16 +244,15 @@ Para <b>copiar arquivos</b> para um contêiner Docker, você pode usar o comando
 
 Execute o contêiner com o comando <b>"docker run"</b>.
 Use o comando <b>"docker cp"</b> seguido do <b>caminho do arquivo</b> local que você deseja copiar e o <b>caminho dentro do container</b> que você deseja copiar para. Por exemplo:
-<code>
-docker cp /caminho/local/arquivo.txt nome-do-container:/caminho/contêiner/arquivo.txt
-</code>
+
+	docker cp /caminho/local/arquivo.txt nome-do-container:/caminho/contêiner/arquivo.txt
 
 Isso copiará o arquivo <b>"arquivo.txt"</b> do seu sistema local para o contêiner Docker com o nome <b>"nome-do-container"</b> no caminho <b>"/caminho/contêiner/arquivo.txt"</b>.
 
 Para copiar arquivos do contêiner para o seu sistema local, basta trocar a ordem dos caminhos:
-<code>
-docker cp nome-do-container:/caminho/contêiner/arquivo.txt /caminho/local/arquivo.txt
-</code>
+
+	docker cp nome-do-container:/caminho/contêiner/arquivo.txt /caminho/local/arquivo.txt
+
 
 Isso copiará o arquivo <b>"arquivo.txt"</b> do contêiner Docker com o nome <b>"nome-do-container"</b> no caminho <b>"/caminho/contêiner/arquivo.txt"</b> para o seu sistema local no caminho <b>"/caminho/local/arquivo.txt"</b>.
 
@@ -274,20 +271,19 @@ Além disso, os usuários também podem <b>criar suas próprias tags personaliza
 
 ### Criação de um Container MySQL
 Primeiro, crie um arquivo .yml/.yaml (aconselho .yml caso use GitLab), por exemplo, o nome que darei será cont-mysql.yml:
-<code>
-version: '3.9'
-services:
-  db:
-    image: mysql:latest
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: sua_senha
-      MYSQL_DATABASE: seu_banco_de_dados
-      MYSQL_USER: seu_usuario
-      MYSQL_PASSWORD: sua_senha_do_usuario
-    ports:
-      - "3306:3306"
-</code>
+
+	version: '3.9'
+	services:
+	  db:
+	    image: mysql:latest
+	    restart: always
+	    environment:
+	      MYSQL_ROOT_PASSWORD: sua_senha
+	      MYSQL_DATABASE: seu_banco_de_dados
+	      MYSQL_USER: seu_usuario
+	      MYSQL_PASSWORD: sua_senha_do_usuario
+	    ports:
+	      - "3306:3306"
 
 Assim como <b>Python</b>, arquivos YAML <b>SÃO OBRIGADOS</b> a serem <i>identados</i> corretamente.
 
