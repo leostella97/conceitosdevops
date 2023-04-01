@@ -193,9 +193,10 @@ Para <b>remover um container</b>, use o comando <b>docker rm nome_ou_id_do_conta
 
 ### Excluindo e Renomeando Containers
 Para excluir um container no Docker:
-<code>
-docker rm nome_ou_id_do_container
-</code>
+''
+
+	docker rm nome_ou_id_do_container
+''
 Onde <b>nome_ou_id_do_container</b> é (lógico) o nome ou ID do container que você deseja <b>excluir</b>. Certifique-se de que o container <b>esteja parado</b> antes de tentar excluí-lo.
 
 Para <b>renomear</b> um container no Docker, você pode usar o seguinte comando:
