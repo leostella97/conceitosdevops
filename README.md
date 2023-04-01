@@ -134,7 +134,7 @@ Digite o comando <b>"docker pull nome_da_imagem"</b> no terminal ou prompt de co
 
 Aguarde até que o download seja concluído e verifique se a imagem foi baixada corretamente digitando <b>"docker images"</b> no terminal ou prompt de comando.
 Segue um script exemplo para baixar a imagem ubuntu:latest (última imagem do Ubuntu):
-''
+
     #Para iniciar um script linux
 	#!/bin/bash 
 
@@ -149,7 +149,6 @@ Segue um script exemplo para baixar a imagem ubuntu:latest (última imagem do Ub
     echo "Imagem $nome_da_imagem baixada com sucesso!"
 	else
     	echo "Houve um problema ao baixar a imagem $nome_da_imagem."
-''
 
 ### Executar um container
 Abra um terminal e execute o comando <b>docker run</b> seguido do <b>nome da imagem</b> do container que deseja executar. Por exemplo, para executar um container do Ubuntu, você pode usar o comando <code>docker run ubuntu</code>.
@@ -167,8 +166,6 @@ Para executar aplicações em um container Docker:
 
 Crie um Dockerfile que <b>defina a imagem base</b> do seu container, <i>instale as dependências necessárias e copie os arquivos</i> da sua aplicação para o container. Por exemplo:
 
-''
-
 	FROM python:3.8
 
 	WORKDIR /app
@@ -179,7 +176,6 @@ Crie um Dockerfile que <b>defina a imagem base</b> do seu container, <i>instale 
 	COPY . .
 
 	CMD ["python", "app.py"]
-''
 
 Crie uma imagem a partir do <b>Dockerfile</b> usando o comando <b>docker build</b>. Por exemplo, se o <i>Dockerfile estiver no diretório atual</i>, você pode usar o comando <code>docker build -t nome_da_imagem</code>. para criar a imagem.
 
@@ -193,17 +189,14 @@ Para <b>remover um container</b>, use o comando <b>docker rm nome_ou_id_do_conta
 
 ### Excluindo e Renomeando Containers
 Para excluir um container no Docker:
-''
 
 	docker rm nome_ou_id_do_container
-''
+
 Onde <b>nome_ou_id_do_container</b> é (lógico) o nome ou ID do container que você deseja <b>excluir</b>. Certifique-se de que o container <b>esteja parado</b> antes de tentar excluí-lo.
 
 Para <b>renomear</b> um container no Docker, você pode usar o seguinte comando:
-''
 
 	docker rename nome_atual_do_container novo_nome_do_container
-''
 
 Onde <b>nome_atual_do_container</b> é o nome atual do container que você deseja renomear e <b>novo_nome_do_container</b> é o novo nome que você deseja dar a ele. <b><i>Lembre-se</i></b> de que o novo nome deve ser exclusivo em relação aos outros containers em execução no seu sistema Docker.
 
@@ -289,19 +282,18 @@ Assim como <b>Python</b>, arquivos YAML <b>SÃO OBRIGADOS</b> a serem <i>identad
 
 ### Parando e Reiniciando um Container
 Para parar um container em execução no Docker, você pode usar o seguinte comando:
-<code>
-docker stop nome_do_container
-</code>
+
+	docker stop nome_do_container
+
 Substitua "nome_do_container" pelo nome ou ID do container que você deseja parar. Isso <b>interromperá</b> o processo em execução no container e o <b>desligará</b>.
 
 Para <b>reiniciar um container</b> que já foi interrompido, use o seguinte comando:
-<code>
-docker start nome_do_container
-</code>
+
+	docker start nome_do_container
+
 Isso <b>iniciará novamente</b> o container com as <b>mesmas configurações</b> que tinha antes de ser interrompido. Se você deseja <b>parar e reiniciar</b> um container em uma <b>única linha de comando</b>, você pode usar o seguinte comando:
-<code>
-docker restart nome_do_container
-</code>
+
+	docker restart nome_do_container
 
 Isso irá <b>parar o container</b>, e em seguida, <b>iniciá-lo novamente <i>imediatamente</i></b> em seguida.
 
@@ -309,31 +301,27 @@ Isso irá <b>parar o container</b>, e em seguida, <b>iniciá-lo novamente <i>ime
 Para <b>limitar o processamento e a memória</b> de um container Docker, você pode usar as <b>opções de limites de recursos</b> disponíveis no Docker. Existem várias opções de limites que você pode aplicar, incluindo <i>limites de CPU, memória e E/S</i>.
 
 Para <b>limitar o processamento</b> de um container Docker, você pode usar a opção <b>--cpus</b> para <i>especificar quantos núcleos de CPU</i> o container pode usar. Por exemplo, para limitar um container a usar <b>apenas um núcleo</b> de CPU, você pode executar o seguinte comando:
-<code>
-docker run --cpus=1 nome-da-imagem
-</code>
+
+	docker run --cpus=1 nome-da-imagem
 
 Para <b>limitar a memória</b> de um container Docker, você pode usar a opção <b>--memory</b> para especificar quantos bytes de memória o container pode usar. Por exemplo, para limitar um container a usar no <b>máximo 1GB</b> de memória, você pode executar o seguinte comando:
-<code>
-docker run --memory=1g nome-da-imagem
-</code>
+
+	docker run --memory=1g nome-da-imagem
 
 Além disso, você também pode usar a opção <b>--memory-swap</b> para especificar a <b>quantidade máxima</b> de memória e swap que o container pode usar. Por exemplo, para limitar um container a usar no máximo 1 GB de memória e 2 GB de swap, você pode executar o seguinte comando:
-<code>
-docker run --memory=1g --memory-swap=2g nome-da-imagem
-</code>
+
+	docker run --memory=1g --memory-swap=2g nome-da-imagem
+
 
 Lembre-se de que essas opções são apenas para limitar o uso de recursos dentro do container Docker e não limitam o uso do host subjacente. Certifique-se de definir limites apropriados para evitar problemas de desempenho ou estabilidade.
 
 Por exemplo, limitar a 1 núcleo de CPU e 1GB de memória
-<code>
+
 	docker run --cpus=1 --memory=1g nome-da-imagem
-</code>
 
 E, neste exemplo, limitando a 1 núcleo de CPU, 1GB de memória com swap de 2GB
-<code>
+
 	docker run --cpus=1 --memory=1g --memory-swap=2g nome-da-imagem
-</code>
 
 ### Informações, Logs e Processos
 Dentro de um container Docker, é possível <b>acessar informações</b> sobre o <i>sistema operacional e os processos em execução</i>, bem como <i>visualizar logs do container</i>.
@@ -370,98 +358,93 @@ Em resumo, o Docker Swarm é uma <b>ferramenta poderosa</b> para gerenciar cont�
 pode usar o Docker Compose para gerenciar e orquestrar os contêineres Docker necessários para o seu aplicativo que vai colocar no container Docker. Lembrando como foi dito anteriormente, <b>Docker Compose</b> também usa <b>arquivos YAML</b>, tendo que identar o código para funcionar e a extensçao .yaml ou .yml (recapitulando, aconselho .yml para uso em GitLab)
 
 O nome que darei vai ser <b>docker-compose.yml</b> e ficará no <b>diretório raiz</b> do projeto com o seguinte conteúdo:
-<code>
-version: '3'
-services:
-  web:
-    build: .
-    ports:
-      - "5000:5000"
-  db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: senha_root
-      MYSQL_DATABASE: meu_banci
-      MYSQL_USER: meu_usuario
-      MYSQL_PASSWORD: minha_senha
-</code>
+
+	version: '3'
+	services:
+	  web:
+	    build: .
+	    ports:
+	      - "5000:5000"
+	  db:
+	    image: mysql:5.7
+	    environment:
+	      MYSQL_ROOT_PASSWORD: senha_root
+	      MYSQL_DATABASE: meu_banci
+	      MYSQL_USER: meu_usuario
+	      MYSQL_PASSWORD: minha_senha
 
 Este arquivo define dois serviços: <b>web</b> e <b>db</b>. O serviço web é <b>construído a partir do Dockerfile</b> no diretório atual <b>(.)</b> e expõe a <b>porta 5000</b>. O serviço db usa a imagem <b>MySQL 5.7</b> e define algumas variáveis de ambiente para <b>configurar</b> o banco de dados.
 
 • No terminal, navegue até o diretório raiz do seu projeto e execute o seguinte comando para iniciar os contêineres:
-<code>
+
 	docker-compose up
-</code>
 
 Isso iniciará os contêineres definidos no arquivo <b>docker-compose.yml</b> que fizemos. O Docker Compose irá <b>construir o serviço web</b> a partir do <b>Dockerfile</b> e <i>iniciar um contêiner para ele, juntamente com um contêiner para o serviço db</i>.
 
 Acesse o aplicativo em seu navegador em <i>http://localhost:5000</i>.
 
 Quando terminar, <b>pare</b> os contêineres com o comando:
-<code>
+
 	docker-compose down
-</code>
 
 Este é apenas um <i>exemplo simples</i>, mas o <b>Docker Compose</b> pode ser usado para <b>gerenciar aplicativos</b> muito mais <b>complexos e com vários serviços</b>. Com o Docker Compose, você pode facilmente <b>orquestrar e dimensionar</b> seus aplicativos em contêineres Docker, tornando o processo de <i>desenvolvimento e implantação muito mais fácil e eficiente</i>.
 
 ### Exemplo PHP APACHE MySQL
 • Crie um arquivo YAML, eu vou criar o <b>docker-compose.yml</b> com o seguinte conteúdo:
-<code>
-version: '3'
 
-services:
-  web:
-    image: php:apache
-    ports:
-      - "80:80"
-    volumes:
-      - ./src:/var/www/html/
-    deploy:
-      replicas: 3
-      update_config:
-        parallelism: 2
-        delay: 10s
-      restart_policy:
-        condition: on-failure
-  db:
-    image: mysql:5.7
-    volumes:
-      - ./db_data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: mydatabase
-      MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword
-    deploy:
-      replicas: 1
-      update_config:
-        parallelism: 1
-        delay: 10s
-      restart_policy:
-        condition: on-failure
-</code>
+	version: '3'
+
+	services:
+	  web:
+	    image: php:apache
+	    ports:
+	      - "80:80"
+	    volumes:
+	      - ./src:/var/www/html/
+	    deploy:
+	      replicas: 3
+	      update_config:
+	        parallelism: 2
+	        delay: 10s
+	      restart_policy:
+	        condition: on-failure
+	  db:
+	    image: mysql:5.7
+	    volumes:
+	      - ./db_data:/var/lib/mysql
+	    environment:
+	      MYSQL_ROOT_PASSWORD: example
+	      MYSQL_DATABASE: mydatabase
+	      MYSQL_USER: myuser
+	      MYSQL_PASSWORD: mypassword
+	    deploy:
+	      replicas: 1
+	      update_config:
+	        parallelism: 1
+	        delay: 10s
+	      restart_policy:
+	        condition: on-failure
 
 Este arquivo define <b>dois serviços</b>: um para o <b>servidor web</b> PHP/Apache e outro para o <b>servidor de banco de dados</b> MySQL. O serviço web é configurado para ter <b>três réplicas</b> e o serviço de banco de dados <b>uma réplica</b>.
 
 Crie uma pasta chamada <b>src</b> para o código PHP. Adicione um arquivo <b>index.php (para o servidor APACHE ler o arquivo e já mostrar, necessita ter o nome index, seja html ou php)</b> a esta pasta com o seguinte conteúdo:
-<code>
-<?php
-$servername = "meu_banco";
-$username = "meu_usuario";
-$password = "minha_senha";
-$dbname = "minha_tabela";
 
-// Cria conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
+	<?php
+	$servername = "meu_banco";
+	$username = "meu_usuario";
+	$password = "minha_senha";
+	$dbname = "minha_tabela";
 
-// Verifica conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+	// Cria conexão
+	$conn = new mysqli($servername, $username, $password, $dbname);
 
-echo "Conectado com sucesso!";
-?>
-</code>
+	// Verifica conexão
+	if ($conn->connect_error) {
+	    die("Falha na conexão: " . $conn->connect_error);
+	}
+
+	echo "Conectado com sucesso!";
+	?>
 
 Este script PHP <b>conecta ao banco</b> de dados</b> MySQL usando as <i>credenciais</i> definidas no arquivo <b>docker-compose.yml</b> e imprime uma mensagem na tela se a conexão for bem-sucedida (poderia colocar else também, caso quiser imprimir mensagem de erro caso dê falha na conexão).
 
@@ -486,44 +469,43 @@ O Docker Swarm oferece <b>recursos avançados de gerenciamento</b> de cluster, c
 Suponha que temos uma <b>aplicação web simples</b> composta por dois serviços: um <b>serviço web e um serviço de banco de dados</b>. Queremos implantar essa aplicação em um cluster Docker Swarm com <b>três nós</b>.
 
 Primeiro, precisamos <b>inicializar</b> um novo cluster Docker Swarm. Podemos fazer isso usando o seguinte comando em um dos nós:
-<code>
-docker swarm init
-</code>
+
+	docker swarm init
+
 Em seguida, precisamos <b>criar uma pilha Docker</b> para nossa aplicação. Uma pilha Docker é um arquivo YAML que define os <i>serviços, redes e volumes de nossa aplicação</i>. Aqui está um exemplo de pilha para nossa aplicação:
-<code>
-version: "3"
-services:
-  db:
-    image: mysql:5.7
-    deploy:
-      replicas: 2
-      placement:
-        constraints: [node.role == worker]
-  web:
-    image: my-web-app:latest
-    deploy:
-      replicas: 3
-      placement:
-        constraints: [node.role == worker]
-    ports:
-      - "80:80"
-    depends_on:
-      - db
-networks:
-  webnet:
-</code>
+
+	version: "3"
+	services:
+	  db:
+	    image: mysql:5.7
+	    deploy:
+	      replicas: 2
+	      placement:
+	        constraints: [node.role == worker]
+	  web:
+	    image: my-web-app:latest
+	    deploy:
+	      replicas: 3
+	      placement:
+	        constraints: [node.role == worker]
+	    ports:
+	      - "80:80"
+	    depends_on:
+	      - db
+	networks:
+	  webnet:
 
 Com a pilha criada, podemos <b>implantar</b> nossa aplicação no cluster Docker Swarm usando o seguinte comando:
-<code>
-docker stack deploy -c docker-compose.yml my-app
-</code>
+
+	docker stack deploy -c docker-compose.yml my-app
+
 
 Agora, nossa aplicação está sendo <b>executada em todo</b> o cluster Docker Swarm, com <b>três réplicas</b> do serviço web e <b>duas réplicas</b> do serviço de banco de dados.
 
 Podemos <b>verificar o status</b> da nossa pilha usando o seguinte comando:
-<code>
-docker stack ps my-app
-</code>
+
+	docker stack ps my-app
+
 
 Isso mostrará o status de cada réplica do serviço em cada nó do cluster.
 
@@ -598,42 +580,40 @@ Para <b>criar um cluster</b> Kubernetes com o MiniKube, siga estes passos:
 • Instale o <b>MiniKube</b> e o <b>Kubernetes CLI</b> em sua máquina local.
 
 • Abra o terminal e inicie o <b>MiniKube</b> digitando o seguinte comando:
-<code>
-minikube start
-</code>
+
+	minikube start
 
 • Verifique se o cluster está em execução digitando o seguinte comando:
-<code>
-kubectl cluster-info
-</code>
+
+	kubectl cluster-info
+
 Isso mostrará informações sobre o cluster Kubernetes em execução.
 
 • Crie um deployment usando um <b>arquivo YAML</b>. Por exemplo, para criar um deployment com uma imagem Nginx, crie um arquivo chamado <b>nginx-deployment.yaml</b> com o seguinte conteúdo (está sendo criado com a extensão .yaml para diversificar um pouco):
-<code>
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx-deployment
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: nginx:latest
-        ports:
-        - containerPort: 80
-</code>
+
+	apiVersion: apps/v1
+	kind: Deployment
+	metadata:
+	  name: nginx-deployment
+	spec:
+	  replicas: 3
+	  selector:
+	    matchLabels:
+	      app: nginx
+	  template:
+	    metadata:
+	      labels:
+	        app: nginx
+	    spec:
+	      containers:
+	      - name: nginx
+	        image: nginx:latest
+	        ports:
+	        - containerPort: 80
+
 <b>Salve o arquivo</b> e, em seguida, <b>implante-o</b> usando o seguinte comando:
-<code>
-kubectl apply -f nginx-deployment.yaml
-</code>
+
+	kubectl apply -f nginx-deployment.yaml
 
 • Verifique se o deployment está em execução digitando o seguinte comando:
 <code>
@@ -642,56 +622,54 @@ kubectl get deployments
 Isso <b>mostrará uma lista</b> de todos os deployments em execução.
 
 • Crie um serviço para <b>expor</b> o deployment. Por exemplo, para criar um serviço para o deployment nginx, crie um arquivo chamado nginx-service.yaml com o seguinte conteúdo:
-<code>
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-service
-spec:
-  selector:
-    app: nginx
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
-  type: LoadBalancer
-</code>
+
+	apiVersion: v1
+	kind: Service
+	metadata:
+	  name: nginx-service
+	spec:
+	  selector:
+	    app: nginx
+	  ports:
+	  - protocol: TCP
+	    port: 80
+	    targetPort: 80
+	  type: LoadBalancer
+
 Salve o arquivo e, em seguida, <b>crie o serviço,/ usando o seguinte comando:
-<code>
-kubectl apply -f nginx-service.yaml
-</code>
+
+	kubectl apply -f nginx-service.yaml
 
 • Verifique se o serviço está em execução digitando o seguinte comando:
-<code>
-kubectl get services
-</code>
+
+	kubectl get services
 
 Isso mostrará uma lista de todos os serviços em execução.
 
 ### Exemplo de Deploy de uma Aplicação
 Vou iniciar o minikube e então, criar um arquivo chamado myapp.yml com o seguinte conteúdo:
-<code>
-minikube start
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: myapp-deployment
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: myapp
-  template:
-    metadata:
-      labels:
-        app: myapp
-    spec:
-      containers:
-      - name: myapp-container
-        image: nginx:latest
-        ports:
-        - containerPort: 80
-</code>
+
+	minikube start
+	apiVersion: apps/v1
+	kind: Deployment
+	metadata:
+	  name: myapp-deployment
+	spec:
+	  replicas: 1
+	  selector:
+	    matchLabels:
+	      app: myapp
+	  template:
+	    metadata:
+	      labels:
+	        app: myapp
+	    spec:
+	      containers:
+	      - name: myapp-container
+	        image: nginx:latest
+	        ports:
+	        - containerPort: 80
+
 
 Para expor o deployment como um serviço, precisa executar o seguinte comando:
 <code>
@@ -754,49 +732,48 @@ Configure o seu ambiente de <b>CI/CD</b> para <b>implantar automaticamente</b> a
 • <b>Monitore</b> a sua aplicação e faça <b>ajustes necessários</b> no seu <b>pipeline de CI/CD</b>.
 
 Com este <b>pipeline de criação de imagens</b> com Kubernetes CI/CD, você pode <b>automatizar</b> todo o processo de <b>construção, teste e implantação</b> de sua aplicação, tornando-o mais <b>eficiente e confiável</b>.
-<code>
-#Arquivo .gitlab-ci.yml
-image: docker:latest
 
-variables:
-  #Defina as variáveis de ambiente
-  DOCKER_DRIVER: overlay2
-  CONTAINER_REGISTERY: gcr.io
-  PROJECT_NAME: my-project
-  IMAGE_NAME: my-image
-  IMAGE_TAG: $CI_COMMIT_SHORT_SHA
+	#Arquivo .gitlab-ci.yml
+	image: docker:latest
 
-before_script:
-  #Instale o cliente do Google Cloud SDK
-  - apk add --update curl python py-pip bash
-  - curl -sSL https://sdk.cloud.google.com | bash
-  - ln -s /root/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud
-  - gcloud auth activate-service-account --key-file=my-service-account.json
-  - gcloud auth configure-docker
+	variables:
+	  #Defina as variáveis de ambiente
+	  DOCKER_DRIVER: overlay2
+	  CONTAINER_REGISTERY: gcr.io
+	  PROJECT_NAME: my-project
+	  IMAGE_NAME: my-image
+	  IMAGE_TAG: $CI_COMMIT_SHORT_SHA
 
-stages:
-  - build
-  - deploy
+	before_script:
+	  #Instale o cliente do Google Cloud SDK
+	  - apk add --update curl python py-pip bash
+	  - curl -sSL https://sdk.cloud.google.com | bash
+	  - ln -s /root/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud
+	  - gcloud auth activate-service-account --key-file=my-service-account.json
+	  - gcloud auth configure-docker
 
-build:
-  stage: build
-  script:
-    #Compile a aplicação e crie a imagem Docker correspondente
-    - docker build -t $CONTAINER_REGISTERY/$PROJECT_NAME/$IMAGE_NAME:$IMAGE_TAG .
-    - docker push $CONTAINER_REGISTERY/$PROJECT_NAME/$IMAGE_NAME:$IMAGE_TAG
-  tags:
-    #Especifique os runners do GitLab CI/CD que podem executar este trabalho
-    - docker
+	stages:
+	  - build
+	  - deploy
 
-deploy:
-  stage: deploy
-  script:
-    #Implante a aplicação no cluster Kubernetes
-    - kubectl apply -f kubernetes-manifest.yaml
-  tags:
-    #Especifique os runners do GitLab CI/CD que podem executar este trabalho
-    - kubernetes
-</code>
+	build:
+	  stage: build
+	  script:
+	    #Compile a aplicação e crie a imagem Docker correspondente
+	    - docker build -t $CONTAINER_REGISTERY/$PROJECT_NAME/$IMAGE_NAME:$IMAGE_TAG .
+	    - docker push $CONTAINER_REGISTERY/$PROJECT_NAME/$IMAGE_NAME:$IMAGE_TAG
+	  tags:
+	    #Especifique os runners do GitLab CI/CD que podem executar este trabalho
+	    - docker
+
+	deploy:
+	  stage: deploy
+	  script:
+	    #Implante a aplicação no cluster Kubernetes
+	    - kubectl apply -f kubernetes-manifest.yaml
+	  tags:
+	    #Especifique os runners do GitLab CI/CD que podem executar este trabalho
+	    - kubernetes
 
 Este código usa o GitLab CI/CD para <b>compilar a aplicação e criar a imagem</b> Docker correspondente. Em seguida, a imagem Docker é enviada para o <b>Google Container Registry</b>. Por fim, o script Kubernetes é aplicado para <b>implantar a aplicação</b> no cluster Kubernetes.
 
