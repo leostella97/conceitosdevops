@@ -134,7 +134,7 @@ Digite o comando <b>"docker pull nome_da_imagem"</b> no terminal ou prompt de co
 
 Aguarde até que o download seja concluído e verifique se a imagem foi baixada corretamente digitando <b>"docker images"</b> no terminal ou prompt de comando.
 Segue um script exemplo para baixar a imagem ubuntu:latest (última imagem do Ubuntu):
-<code>
+''
     #Para iniciar um script linux
 	#!/bin/bash 
 
@@ -149,7 +149,7 @@ Segue um script exemplo para baixar a imagem ubuntu:latest (última imagem do Ub
     echo "Imagem $nome_da_imagem baixada com sucesso!"
 	else
     	echo "Houve um problema ao baixar a imagem $nome_da_imagem."
-</code>
+''
 
 ### Executar um container
 Abra um terminal e execute o comando <b>docker run</b> seguido do <b>nome da imagem</b> do container que deseja executar. Por exemplo, para executar um container do Ubuntu, você pode usar o comando <code>docker run ubuntu</code>.
