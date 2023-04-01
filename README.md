@@ -166,18 +166,18 @@ Para parar um container em execução, você pode usar o comando <b>docker stop 
 Para executar aplicações em um container Docker:
 
 Crie um Dockerfile que <b>defina a imagem base</b> do seu container, <i>instale as dependências necessárias e copie os arquivos</i> da sua aplicação para o container. Por exemplo:
-<code>
-FROM python:3.8
+''
+	FROM python:3.8
 
-WORKDIR /app
+	WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+	COPY requirements.txt .
+	RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+	COPY . .
 
-CMD ["python", "app.py"]
-</code>
+	CMD ["python", "app.py"]
+''
 
 Crie uma imagem a partir do <b>Dockerfile</b> usando o comando <b>docker build</b>. Por exemplo, se o <i>Dockerfile estiver no diretório atual</i>, você pode usar o comando <code>docker build -t nome_da_imagem</code>. para criar a imagem.
 
