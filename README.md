@@ -636,7 +636,7 @@ Isso <b>mostrará uma lista</b> de todos os deployments em execução.
 	    targetPort: 80
 	  type: LoadBalancer
 
-Salve o arquivo e, em seguida, <b>crie o serviço,/ usando o seguinte comando:
+Salve o arquivo e, em seguida, <b>crie o serviço</b> usando o seguinte comando:
 
 	kubectl apply -f nginx-service.yaml
 
