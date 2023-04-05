@@ -887,6 +887,130 @@ Isso exibirá a documentação completa do comando <code>compute instances creat
 
 Usando esses comandos e documentação, você pode <b>gerenciar</b> seus recursos do Google Cloud Platform com <i>facilidade usando o Google Cloud SDK</i>.
 
+## Terraform
+Terraform é uma ferramenta de <b>infraestrutura como código (IaC)</b> desenvolvida pela <b>HashiCorp</b>. Ela permite que você <b>defina e provisione</b> recursos de infraestrutura de <i>forma declarativa</i>, ou seja, você descreve como deseja que sua <i>infraestrutura esteja e o Terraform se encarrega de criar e gerenciar esses recursos</i>. Isso ajuda a <b>automatizar e simplificar</b> o processo de gerenciamento de infraestrutura, tornando-o mais <b>eficiente e confiável</b>. O Terraform é compatível com uma ampla variedade de <i>provedores de nuvem e serviços</i>, o que o torna uma ferramenta <b>poderosa</b> para equipes que gerenciam infraestrutura em várias plataformas.
+
+### Terraform hello
+
+<b>• Google Cloud -</b>
+Para começar a usar o Terraform com o <b>Google Cloud Platform (GCP)</b>, você precisa definir um <b>arquivo de configuração</b> que <i>descreva a infraestrutura que deseja criar</i> na nuvem do Google.
+
+Aqui está um <b>exemplo simples</b> de arquivo de configuração que cria uma instância de máquina virtual (VM) no GCP:
+
+	provider "google" {
+	  project = "seu-projeto"
+	  region  = "us-central1"
+	}
+
+	resource "google_compute_instance" "exemplo" {
+	  name         = "vm-exemplo"
+	  machine_type = "e2-medium"
+	  zone         = "us-central1-a"
+
+	  boot_disk {
+	    initialize_params {
+	      image = "debian-cloud/debian-10"
+	    }
+	  }
+
+	  network_interface {
+	    network = "default"
+
+	    access_config {
+	    }
+	  }
+	}
+
+Nesse exemplo, estamos usando o provedor do Google e criando uma <b>instância de VM</b> com sistema operacional <b>Debian-10</b> na região <b>us-central1 do GCP</b> .
+
+<b>• AWS -</b>
+Para começar a usar o Terraform com a <b>Amazon Web Services (AWS)</b>, você precisa definir um <b>arquivo de configuração</b> que descreva a <i>infraestrutura que deseja criar</i> na nuvem da AWS.
+
+Aqui está um <b>exemplo simples</b> de arquivo de configuração que cria uma instância EC2 na AWS:
+
+	provider "aws" {
+	  region = "us-west-2"
+	}
+
+	resource "aws_instance" "exemplo" {
+	  ami           = "ami-0c55b159cbfafe1f0"
+	  instance_type = "t2.micro"
+	}
+
+Nesse exemplo, estamos usando o <b>provedor da AWS</b> e criando uma <b>instância EC2 com tipo de instância t2.micro</b> na região <b>us-west-2 da AWS</b>.
+
+### Estado do Terraform
+O Terraform é uma ferramenta de infraestrutura como código (IaC) que possui um <i>estado que registra o status atual da infraestrutura provisionada</i>. Esse estado é armazenado em um arquivo chamado <b>"terraform.tfstate"</b>.
+
+O estado do Terraform contém <b>informações importantes</b> sobre os recursos provisionados, como <i>identificadores, atributos e metadados</i>. Ele também é usado pelo Terraform para <b>rastrear as alterações</b> feitas na infraestrutura ao longo do tempo e para determinar quais recursos precisam ser <i>criados, atualizados ou excluídos</i> em uma determinada operação.
+
+É <b>importante manter o estado</b> do Terraform <b>seguro e atualizado</b>, pois ele é usado como <i>fonte de verdade para a infraestrutura provisionada</i>. Além disso, ao trabalhar em equipe, é <b>importante compartilhar o estado</b> do Terraform para que todos os membros da equipe possam <i>trabalhar com a mesma versão</i> da infraestrutura. O Terraform <i>oferece suporte</i> a várias opções de armazenamento de estado, incluindo armazenamento <i>local, armazenamento remoto em serviços</i> como o <b>Amazon S3 ou o Google Cloud Storage</b>, e <i>armazenamento em banco de dados</i>, como o Consul.
+
+### Variáveis e Saídas
+O Terraform permite que você use variáveis e saídas para tornar sua configuração mais <b>dinâmica e flexível</b>.
+
+As variáveis do Terraform são usadas para <b>fornecer informações</b> que podem variar de acordo com o ambiente em que sua infraestrutura está sendo criada. Você pode definir variáveis em um arquivo separado e referenciá-las em sua configuração usando a sintaxe <code>${var.nome_da_variavel}</code>. Por exemplo:
+
+	variable "nome" {
+	  type = string
+	  default = "Mundo"
+	}
+
+	resource "aws_instance" "exemplo" {
+	  ami = "ami-0c55b159cbfafe1f0"
+	  instance_type = "t2.micro"
+	  tags = {
+	    Name = "Hello, ${var.nome}"
+	  }
+	}
+
+Nesse exemplo, estamos definindo uma variável <b>"nome"<b> com um <i>valor padrão </i><b>"Mundo"</b>. Em seguida, estamos usando essa variável para <i>criar uma instância EC2 na AWS</i> com uma tag <b>"Name"</b> que inclui o <i>valor da variável</i>.
+
+As <b>saídas</b> do Terraform são usadas para <b>expor informações</b> sobre os recursos <i>criados pela configuração</i>. Você pode definir saídas em um arquivo separado e referenciá-las em sua configuração usando a sintaxe <code>output.nome_da_saida</code>. Por exemplo:
+
+	output "ip_publico" {
+	  value = aws_instance.exemplo.public_ip
+	}
+
+Nesse exemplo, estamos definindo uma saída <code>"ip_publico"</code> que <b>expõe</b> o endereço IP público da instância EC2 criada. Essa saída pode ser referenciada em outras configurações do Terraform ou <i>usada em scripts e ferramentas externas</i>.
+
+### O que é legado
+Em termos de tecnologia, o "legado" do Terraform <b>refere-se às versões anteriores</b> do Terraform <b>que foram substituídas</b> por versões mais recentes e avançadas.
+
+Por exemplo, o <i>Terraform 0.11 é considerado um legado</i>, pois foi <i>substituído pelo Terraform 0.12</i> e <i>versões mais recentes</i>. Isso significa que o <i>Terraform 0.11 não é mais suportado</i> pela equipe do Terraform e <i>não recebe mais atualizações ou correções de bugs</i>.
+
+Usar uma versão legada do Terraform pode limitar sua capacidade de usar novos recursos e funcionalidades, além de colocar sua infraestrutura em risco, pois a versão legada <b>pode conter vulnerabilidades</b> conhecidas.
+
+Por isso, é <b>importante manter-se atualizado</b> com as versões mais recentes do Terraform e migrar sua infraestrutura para a versão mais recente sempre que possível. A equipe do Terraform também fornece ferramentas e guias para ajudar na migração entre versões.
+
+### Exportando um projeto
+Para exportar um projeto Terraform, você precisará <b>primeiro configurar</b> o ambiente de destino onde deseja implantar sua infraestrutura. Isso pode incluir a <i>criação de credenciais para provedores de nuvem</i>, como AWS ou Google Cloud Platform.
+
+Uma vez que seu ambiente de destino esteja configurado, você pode executar o comando <code>terraform init</code> na pasta do projeto Terraform para <b>inicializar</b> o ambiente com os provedores e módulos necessários.
+
+Em seguida, você pode executar o comando <code>terraform plan</code> para <b>visualizar as alterações</b> que serão feitas na infraestrutura ao implantar o projeto Terraform.
+
+Se você estiver satisfeito com o plano, pode executar o comando <code>terraform apply</code> para <b>implantar</b> o projeto Terraform. Isso <i>criará todos os recursos necessários</i> na nuvem de destino.
+
+Para exportar o projeto Terraform, você pode simplesmente <b>copiar os arquivos</b> de configuração do projeto para outro ambiente e <b>executar</b> os mesmos comandos <code>"terraform init", "terraform plan"</code> e <code>"terraform apply"</code> no novo ambiente.
+
+No entanto, é <b>importante lembrar</b> que o ambiente de destino deve estar configurado corretamente para garantir que a infraestrutura seja implantada corretamente. Além disso, é importante manter o controle de versão de seus arquivos de configuração do Terraform para rastrear alterações e garantir que você possa reverter para versões anteriores, se necessário.
+
+### Importando os estados 
+A importação do estado do Terraform é usada para <b>trazer recursos existentes</b> de uma infraestrutura já existente sob o gerenciamento do Terraform.
+
+Para importar o estado de um recurso, você <i>precisa primeiro criar a definição desse recurso em um arquivo Terraform</i>. Em seguida, execute o comando <code>terraform import</code> especificando o <b>tipo de recurso e seu identificador único</b>. Por exemplo:
+
+	terraform import aws_instance.example i-0123456789abcdef0
+
+Nesse exemplo, estamos importando um recurso <code>aws_instance</code> com o identificador <code>i-0123456789abcdef0</code>.
+
+Depois que o recurso for importado, você precisará executar o comando <code>terraform state list</code> para verificar se o recurso foi importado corretamente e aparece na lista de recursos gerenciados pelo Terraform.
+
+Em seguida, você pode usar o comando <code>terraform plan</code> para visualizar quaisquer alterações que serão feitas na configuração ao gerenciar esse recurso com o Terraform. Se estiver satisfeito com o plano, execute o comando <code>terraform apply</code> para aplicar as alterações.
+
+Importar estados no Terraform pode ser um processo delicado e requer <b>cuidadosa atenção</b> aos detalhes. Certifique-se de que o estado importado corresponda à configuração atual e verifique cuidadosamente quaisquer diferenças para garantir que a configuração do Terraform reflita com precisão a infraestrutura existente.
+
 
 
 
