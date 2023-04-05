@@ -1011,6 +1011,20 @@ Em seguida, você pode usar o comando <code>terraform plan</code> para visualiza
 
 Importar estados no Terraform pode ser um processo delicado e requer <b>cuidadosa atenção</b> aos detalhes. Certifique-se de que o estado importado corresponda à configuração atual e verifique cuidadosamente quaisquer diferenças para garantir que a configuração do Terraform reflita com precisão a infraestrutura existente.
 
+## Jenkins
+Jenkins é uma ferramenta de automação de código aberto amplamente utilizada para realizar integração contínua e entrega contínua (CI/CD). Ele ajuda a automatizar o processo de construção, teste e implantação de software, permitindo que as equipes de desenvolvimento de software forneçam software de alta qualidade com mais rapidez e eficiência. Além disso, Jenkins é altamente configurável e suporta integração com muitas outras ferramentas e tecnologias de software.
+
+### Instalação através do Marketplace 
+Se você quiser instalar o Jenkins através do Marketplace, siga estes passos:
+<ol>
+	<li>Acesse o Marketplace da sua plataforma de nuvem (por exemplo, AWS, Azure, Google Cloud).<li>
+	<li>Procure por "Jenkins" na barra de pesquisa.</li>
+	<li>Selecione a versão mais recente do Jenkins e verifique se ela é compatível com sua plataforma e requisitos.</li>
+	<li>Clique em "Instalar" e siga as instruções na tela para concluir a instalação.</li>
+	<li>Após a conclusão da instalação, acesse o Jenkins por meio do URL fornecido pelo Marketplace e siga as instruções para configurar sua instância do Jenkins.</li>
+</ol>
+Observe que a instalação através do Marketplace pode variar dependendo da plataforma de nuvem que você está usando. Certifique-se de ler cuidadosamente as instruções fornecidas pelo Marketplace para garantir uma instalação bem-sucedida.
+
 
 
 
