@@ -1025,6 +1025,22 @@ Se você quiser instalar o Jenkins através do Marketplace, siga estes passos:
 </ol>
 Observe que a instalação através do Marketplace pode variar dependendo da plataforma de nuvem que você está usando. Certifique-se de ler cuidadosamente as instruções fornecidas pelo Marketplace para garantir uma instalação bem-sucedida.
 
+### Configurando o Jenkins
+Para configurar o Jenkins, siga estes passos:
+<ol>
+	<li>Acesse o Jenkins por meio do URL fornecido após a instalação.
+	Na página inicial do Jenkins, clique em "Gerenciar Jenkins" no menu à esquerda.
+	<li>Clique em "Configurar Sistema" para configurar as configurações globais do Jenkins.
+	<li>Configure as configurações globais de acordo com suas necessidades, como localização, segurança, email e notificações.
+	<li>Clique em "Salvar" para salvar as alterações.
+	Volte à página inicial do Jenkins e clique em "Novo Job" para criar um novo job.
+	<li>Siga as instruções na tela para configurar o job, incluindo nome, descrição, tipo de job e configurações específicas para o job, como repositórios de código-fonte, ferramentas de construção, testes e implantação.
+	<li>Clique em "Salvar" para salvar as configurações do job.
+	Volte à página inicial do Jenkins e clique no job recém-criado para executá-lo.
+</ol>
+Observe que a configuração do Jenkins pode variar dependendo das necessidades específicas do seu projeto e do seu ambiente. Certifique-se de ler a documentação do Jenkins e seguir as melhores práticas para garantir uma configuração segura e eficiente.
+
+
 
 
 
