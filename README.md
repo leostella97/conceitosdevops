@@ -777,6 +777,115 @@ Com este <b>pipeline de criação de imagens</b> com Kubernetes CI/CD, você pod
 
 Este código usa o GitLab CI/CD para <b>compilar a aplicação e criar a imagem</b> Docker correspondente. Em seguida, a imagem Docker é enviada para o <b>Google Container Registry</b>. Por fim, o script Kubernetes é aplicado para <b>implantar a aplicação</b> no cluster Kubernetes.
 
+## GCloud SDK
+O GCloud SDK é um conjunto de ferramentas de <b>linha de comando e bibliotecas</b> que permitem que você interaja com os serviços do <b>Google Cloud Platform (GCP)</b>. Com o GCloud SDK, você pode <b>gerenciar seus recursos</b> do GCP, como <i>instâncias de máquinas virtuais, bancos de dados e armazenamento em nuvem</i>, diretamente da linha de comando do seu terminal. Além disso, você pode <i>automatizar tarefas de gerenciamento de recursos usando scripts e integrações com outras ferramentas de desenvolvimento</i>. O GCloud SDK é uma <b>ferramenta essencial</b> para desenvolvedores e administradores de sistemas que trabalham com o GCP.
+
+Além disso, o GCloud SDK é <b>compatível</b> com várias linguagens de programação, incluindo <i>Python, Java e Node.js</i>, o que significa que você pode integrá-lo facilmente aos seus projetos existentes. Ele também oferece <b>recursos avançados</b>, como a capacidade de <i>criar imagens de disco personalizadas e implantar aplicativos diretamente do seu terminal</i>.
+
+O GCloud SDK é <b>compatível com vários sistemas operacionais</b>, incluindo <i>Windows, macOS e Linux</i>, o que o torna uma ferramenta <i>acessível</i> para desenvolvedores em diferentes plataformas. Além disso, o GCloud SDK é <i>atualizado regularmente para adicionar novos recursos e corrigir problemas</i>.
+
+Em resumo, o GCloud SDK é uma ferramenta <b>poderosa e flexível</b> para gerenciar recursos do GCP a partir da linha de comando do seu terminal. Se você está trabalhando com o GCP, vale a pena aprender como usar o GCloud SDK para <i>facilitar suas tarefas de gerenciamento de recursos e automatizar processos.</i>
+
+### GCloud SDK Instalação Linux
+
+• Abra um terminal no seu sistema Linux.
+
+• Adicione o repositório do <b>Google Cloud SDK</b> usando o seguinte comando:
+
+	echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+• Importe a chave de assinatura do Google Cloud SDK com o seguinte comando:
+
+	sudo apt-get install apt-transport-https ca-certificates gnupg
+	curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+
+• Atualize a lista de pacotes do sistema usando o seguinte comando:
+
+	sudo apt-get update
+
+• Instale o Google Cloud SDK usando o seguinte comando:
+
+	sudo apt-get install google-cloud-sdk
+
+Depois que a instalação estiver concluída, <b>verifique se o SDK foi instalado corretamente</b> digitando o seguinte comando no terminal:
+
+	gcloud version
+
+Isso deve <b>retornar a versão instalada</b> do GCloud SDK. Agora você pode começar a usar o GCloud SDK para <b>gerenciar seus recursos</b> do Google Cloud Platform diretamente do seu <b>terminal Linux</b>.
+
+### GCloud SDK Instalação Windows e Mac
+A instalação do <b>Google Cloud SDK no Windows ou Mac</b> é relativamente simples. Siga estas etapas:
+
+• Baixe o instalador do Google Cloud SDK para Windows a partir do site oficial do Google Cloud: https://cloud.google.com/sdk/docs/install#windows para Windows e https://cloud.google.com/sdk/docs/install#mac para Mac
+
+• Execute o arquivo de instalação baixado.
+
+• Siga as instruções na tela para concluir a instalação.
+
+• Selecione os componentes do SDK que você deseja instalar. Você pode optar por instalar todas as ferramentas ou escolher apenas as necessárias (na hora de escolher, lembre-se que é 'melhor sobrar que faltar').
+
+• Escolha um diretório de instalação e aguarde a conclusão da instalação.
+
+• Depois que a instalação estiver concluída, abra o prompt de comando do Windows.
+
+• Digite o seguinte comando para inicializar o SDK:
+
+	gcloud init
+
+Siga as <b>instruções na tela</b> para fazer <b>login</b> na sua conta do Google e <b>configurar suas credenciais</b>.
+
+Depois que a inicialização estiver concluída, você pode começar a usar o Google Cloud SDK diretamente do prompt de comando do Windows.
+
+Isso deve permitir que você comece a <b>gerenciar seus recursos</b> do Google Cloud Platform diretamente do seu prompt de comando do Windows usando o Google Cloud SDK.
+
+### GCloud SDK Instalação Create Compute Engine
+Para criar uma instância do Compute Engine do Google Cloud Platform usando o Google Cloud SDK, siga estas etapas:
+
+Instale o Google Cloud SDK no seu sistema operacional, seguindo as instruções apropriadas para o seu sistema operacional.
+
+• Abra o terminal ou prompt de comando.
+
+• Inicialize o SDK digitando o seguinte comando:
+
+	gcloud init
+
+• Siga as instruções na tela para <b>autenticar</b> na sua conta do Google e <b>selecionar</b> o projeto do Google Cloud.
+
+• Depois que a inicialização estiver concluída, crie uma nova instância do Compute Engine digitando o seguinte comando:
+
+	gcloud compute instances create [NOME_DA_INSTÂNCIA]
+
+Substitua [NOME_DA_INSTÂNCIA] pelo nome que você deseja atribuir à instância.
+
+Adicione opções adicionais ao comando gcloud compute instances create para personalizar sua instância, como o tipo de máquina, o sistema operacional, o disco e a rede.
+Por exemplo, para criar uma instância com 2 vCPUs, 4 GB de memória, sistema operacional Ubuntu e um disco de inicialização padrão de 10 GB, use o seguinte comando:
+
+	gcloud compute instances create [NOME_DA_INSTÂNCIA] --machine-type=n1-standard-2 --image-project=ubuntu-os-cloud --image-family=ubuntu-1804-lts --boot-disk-size=10GB
+
+Isso deve criar uma nova instância do Compute Engine no seu projeto do Google Cloud Platform usando o Google Cloud SDK. Você pode gerenciar a instância diretamente do terminal ou prompt de comando usando o Google Cloud SDK.
+
+### GCloud SDK Instalação Comandos e Dovumentação
+O Google Cloud SDK é uma ferramenta poderosa para gerenciar recursos no Google Cloud Platform. Depois de instalado, você pode usar vários comandos para gerenciar suas instâncias, projetos, contas, etc.
+
+• Para ver uma lista completa de comandos disponíveis, digite o seguinte comando no terminal ou prompt de comando:
+
+	gcloud help
+
+Isso exibirá uma lista de todos os comandos disponíveis no Google Cloud SDK.
+
+Além disso, você pode usar o seguinte comando para ver a documentação de qualquer comando específico:
+
+	gcloud [NOME_DO_COMANDO] --help
+
+Substitua [NOME_DO_COMANDO] pelo nome do comando que você deseja ver a documentação.
+
+Por exemplo, para ver a documentação do comando compute instances create, use o seguinte comando:
+
+	gcloud compute instances create --help
+
+Isso exibirá a documentação completa do comando <code>compute instances create</code>.
+
+Usando esses comandos e documentação, você pode <b>gerenciar</b> seus recursos do Google Cloud Platform com <i>facilidade usando o Google Cloud SDK</i>.
 
 
 
