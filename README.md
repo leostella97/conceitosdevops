@@ -1017,7 +1017,7 @@ Jenkins é uma ferramenta de automação de código aberto amplamente utilizada 
 ### Instalação através do Marketplace 
 Se você quiser instalar o Jenkins através do Marketplace, siga estes passos:
 <ol>
-	<li>Acesse o Marketplace da sua plataforma de nuvem (por exemplo, AWS, Azure, Google Cloud).<li>
+	<li>Acesse o Marketplace da sua plataforma de nuvem (por exemplo, AWS, Azure, Google Cloud).</li>
 	<li>Procure por "Jenkins" na barra de pesquisa.</li>
 	<li>Selecione a versão mais recente do Jenkins e verifique se ela é compatível com sua plataforma e requisitos.</li>
 	<li>Clique em "Instalar" e siga as instruções na tela para concluir a instalação.</li>
