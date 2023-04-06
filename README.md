@@ -1040,6 +1040,70 @@ Para configurar o Jenkins, siga estes passos:
 </ol>
 Observe que a configuração do Jenkins pode variar dependendo das necessidades específicas do seu projeto e do seu ambiente. Certifique-se de ler a documentação do Jenkins e seguir as melhores práticas para garantir uma configuração segura e eficiente.
 
+### Exemplo prático do Jenkins
+Um exemplo prático do Jenkins é criar um job para automatizar o processo de construção, teste e implantação de um aplicativo web.
+<ol>
+	<li>Crie um novo job no Jenkins e dê um nome para ele, como "Construir e implantar aplicativo web".
+	<li>Selecione o tipo de job "Construir um projeto de software" e configure-o para buscar o código-fonte do seu repositório (como Git ou SVN).
+	<li>Configure a ferramenta de construção para compilar e gerar os artefatos do seu aplicativo (como Maven ou Gradle).
+	<li>Configure o job para executar testes automatizados para garantir a qualidade do código.
+	<li>Configure o job para implantar o aplicativo em um servidor de aplicativos (como Tomcat ou JBoss).
+	<li>Configure notificações por e-mail para informar a equipe de desenvolvimento sobre o status do job.
+	Salve as configurações do job e execute-o.
+</ol>
+Agora, sempre que houver uma nova alteração no código-fonte, o Jenkins automaticamente executará o job para construir, testar e implantar o aplicativo web. Isso permite que a equipe de desenvolvimento entregue o software com mais rapidez e eficiência, enquanto mantém a qualidade e a confiabilidade do código.
+
+### Exemplo de um pipeline Jenkins escrito em Groovy:
+
+	pipeline {
+	    agent any
+	    stages {
+	        stage('Construir') {
+	            steps {
+	                sh 'mvn clean package'
+	            }
+	        }
+	        stage('Testar') {
+	            steps {
+	                sh 'mvn test'
+	            }
+	        }
+	        stage('Implantar') {
+	            steps {
+	                sh 'scp target/myapp.war user@server:/path/to/deploy'
+	            }
+	        }
+	    }
+	}
+
+Este pipeline possui três estágios:
+<ol>
+	<li><b>Construir</b> - usa o comando Maven para limpar e empacotar o código-fonte em um arquivo WAR.
+	<li><b>Testar</b> - executa testes automatizados usando o comando Maven test.
+	<li><b>Implantar</b> - copia o arquivo WAR gerado para um servidor remoto usando o comando SCP.
+</ol>
+
+## Git
+O Git é um sistema de controle de versão distribuído, amplamente utilizado na área de desenvolvimento de software. Ele permite que você acompanhe as alterações em um conjunto de arquivos ao longo do tempo, além de facilitar a colaboração entre membros de uma equipe.
+
+Com o Git, você pode criar um repositório para armazenar seus arquivos de projeto e usar comandos como "commit" e "push" para enviar suas alterações para o repositório. Outros membros da equipe podem então "clonar" o repositório para trabalhar em seus próprios computadores e enviar suas próprias alterações.
+
+O Git também inclui recursos avançados, como a capacidade de criar "ramificações" (branchs de outras branch) para experimentar diferentes abordagens para um problema, sem afetar o código principal. Além disso, ele possui uma ampla gama de ferramentas para ajudá-lo a solucionar problemas e colaborar com sua equipe de maneira eficaz.
+
+### Comandos
+• git init: Inicializa um repositório Git em um diretório local.
+• git add nome_do_arquivo: Adiciona um arquivo específico ao índice (staging area) para ser commitado posteriormente.
+• git add . : Adiciona todos os arquivos alterados e novos ao índice (staging area) para serem commitados posteriormente.
+• git commit -m "mensagem de commit": Confirma as alterações feitas no repositório com uma mensagem descritiva. git status: Mostra o estado atual do repositório e quais arquivos foram modificados ou adicionados.
+• git log: Mostra o histórico de commits realizados no repositório.
+• git branch: Lista todas as ramificações (branches) criadas no repositório.
+• git checkout nome_da_branch: Muda para uma branch específica.
+• git merge nome_da_branch: Combina as alterações de uma branch com a branch atual.
+• git push: Envia as alterações feitas localmente para o repositório remoto.
+• git pull: Atualiza o repositório local com as alterações feitas no repositório remoto.
+• git clone url_do_repositório: Clona um repositório remoto para o seu computador local.
+
+
 
 
 
